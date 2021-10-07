@@ -14,8 +14,8 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+ Route::get('/', function () {
+     return view('components.layouts.app');
+ });
 
 Route::resource('category', CategoryController::class);
