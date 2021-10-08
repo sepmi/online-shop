@@ -44,9 +44,9 @@ class CategoryController extends Controller
     public function update(Request $request,Category $category)
     {
         dd($category);
-        //$category->name = $request['name'];
-        //$category->save();
-        //return redirect()->route('categories.index')->with('success','category id updated successfully!');
+        $category->name = $request['name'];
+        $category->save();
+        return redirect()->route('categories.show',$category->id)->with('success','category id updated successfully!');
     }
 
     
