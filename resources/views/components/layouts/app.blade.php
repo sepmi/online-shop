@@ -14,7 +14,7 @@
         <div class="container-fluid">
             <x-layouts.header></x-layouts.header>
             <div class="content mt-5">
-                {{-- <x-messages></x-messages> --}}
+                <x-messages></x-messages>
                 {{$slot ?? ""}}
             </div>
         </div>

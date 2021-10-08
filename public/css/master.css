@@ -11,3 +11,11 @@
 .sepehr2 {
     display: inline;
 }
+
+.sepehr3 {
+    max-width: 300px;
+    margin: auto;
+    direction: rtl;
+    margin-bottom: 2px;
+
+}
