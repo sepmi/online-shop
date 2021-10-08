@@ -15,7 +15,8 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                       <li><a class="dropdown-item" href="{{route('categories.create')}}">Create</a></li>
-                      <li><a class="dropdown-item" href="">Categories</a></li>
+                      <li><a class="dropdown-item" href="{{route('categories.index')}}">Show Categories</a></li>
+                      
                     </ul>
                   </li>
 

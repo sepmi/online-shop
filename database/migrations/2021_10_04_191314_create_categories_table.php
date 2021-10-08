@@ -17,6 +17,7 @@ class CreateCategoriesTable extends Migration
             $table->id();
             $table->char('title');
             $table->longText('image')->nullable();
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
         });
     }

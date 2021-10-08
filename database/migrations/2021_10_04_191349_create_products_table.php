@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->longText('description');
             $table->char('price');
             $table->longText('image');
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
 
             $table->unsignedBigInteger('category_id');

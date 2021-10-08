@@ -9,12 +9,15 @@ class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
-     *
+     *π
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        //
+
+        $categories = Category::all();
+        
+        return view('category.index', compact('categories'));
     }
 
     /**
@@ -64,7 +67,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        return view('category.edit');
+        return view('category.edit',compact('category'));
     }
 
     /**
@@ -76,7 +79,11 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $category ->title = $request['title'];
+        $category ->save();
+
+        return redirect()->route('categories.index');
+
     }
 
     /**
@@ -87,6 +94,10 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        
+        $category ->is_deleted = true;
+        $category ->save();
+
+        return redirect()->route('categories.index'); 
     }
 }
