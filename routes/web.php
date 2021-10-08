@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,4 +19,6 @@ use App\Http\Controllers\CategoryController;
      return view('components.layouts.app');
  });
 
-Route::resource('category', CategoryController::class);
+Route::resource('/categories', CategoryController::class);
+
+Route::resource('/products' , ProductController::class);

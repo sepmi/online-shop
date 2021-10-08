@@ -6,15 +6,14 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="{{route('categories.index')}}">Home</a>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               Categories
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item" href="#">Show</a></li>
-              <li><a class="dropdown-item" href="#">Create</a></li>
-              <li><a class="dropdown-item" href="#">Edit</a></li>
+              <li><a class="dropdown-item" href="{{route('categories.create')}}">Create</a></li>
+              <li><a class="dropdown-item" href="{{route('categories.index')}}">Index</a></li>
             </ul>
           </li>
           <li class="nav-item dropdown">

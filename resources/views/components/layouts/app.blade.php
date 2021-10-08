@@ -6,17 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ $title ?? 'online-shop'}}</title>
 
-    <link rel="stylesheet" href={{asset('css/app.css')}}>
+    <link rel="stylesheet" href="{{asset('css/app.css')}}">
     <link rel="stylesheet" href="{{asset('css/master.css')}}">
-    {{$css ?? ''}}
+    {{-- {{$css ?? ''}} --}}
     </head>
 <body>
     <div class="container-fluid">
-        <x-layouts.header>
-        </x-layouts.header>
-        <div>
-            
-        </div>  
+        <div class="content">
+            <x-layouts.header>
+            </x-layouts.header>
+            <x-message>
+            </x-message>
+            <div>
+                {{$slot ?? ''}} 
+            </div> 
+        </div> 
     </div>
     
 </body>
