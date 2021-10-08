@@ -1,7 +1,8 @@
 <?php
 use App\Http\Controllers\CategoryController;
-use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use Illuminate\Support\Facades\Route;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,7 @@ use App\Http\Controllers\ProductController;
 // });
 
 
-Route::resource('/category', CategoryController::class);
-Route::resource('/product', ProductController::class);
+Route::resource('/categories', CategoryController::class);
+Route::resource('/products', ProductController::class);
 
-Route::get('/',[App\Http\Controllers\PageController::class,'homePage']);
+Route::get('/',[App\Http\Controllers\PageController::class,'homePage'])->name('index');

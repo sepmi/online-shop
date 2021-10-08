@@ -24,7 +24,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        $category = new Category();
+
+        return view('category.create' , compact('category'));
     }
 
     /**
@@ -35,7 +37,12 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       $category = Category::create([
+            'title' => $request['title'],
+
+        ]);
+
+        return redirect()->route('categories.show',$category->id);
     }
 
     /**
@@ -46,7 +53,7 @@ class CategoryController extends Controller
      */
     public function show(Category $category)
     {
-        //
+        return view('category.show',compact('category'));
     }
 
     /**
@@ -57,7 +64,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('category.edit');
     }
 
     /**
