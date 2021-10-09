@@ -6,6 +6,7 @@
         <div class="card-header text-center">
             {{$category->title}}
         </div>
+        
         <div class="card-body">
             
             
