@@ -65,6 +65,6 @@ class CategoryController extends Controller
         $category ->is_deleted = true;
         $category ->save();
 
-        return redirect()->route('categories.index'); 
+        return redirect()->route('categories.index')->with('success-delete', 'Category Deleted'); 
     }
 }
