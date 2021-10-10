@@ -6,7 +6,7 @@
       
       <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home(admin)</a>
 
 
                 <li class="nav-item dropdown">
@@ -31,6 +31,12 @@
                       {{-- <li><a class="dropdown-item" href="{{route('categories.index')}}">Posts</a></li> --}}
                     </ul>
                   </li>
+
+
+                  <form class="d-inline"action="{{route('userMode')}}" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-danger" >Go to User Mode</button>
+                  </form>
             </div>
       </div>
   </div>
