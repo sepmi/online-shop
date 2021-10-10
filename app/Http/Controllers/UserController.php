@@ -29,5 +29,20 @@ class UserController extends Controller
         }
         return back();
     }
+
+    public function storeUser(Request $request){
+
+        User::create([
+            
+            'email' => $request['email'],
+            'password' => $request['password'],
+            'fname' => $request['fname'],
+            'lname' => $request['lname'],
+
+
+        ]);
+
+        return redirect()->route('index')->with('success', 'User Created');
+    }
     
 }

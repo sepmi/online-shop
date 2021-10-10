@@ -26,6 +26,7 @@ Route::resource('/products', ProductController::class);
 
 Route::get('/',[App\Http\Controllers\PageController::class,'homePage'])->name('index');
 Route::get('/login',[App\Http\Controllers\PageController::class,'loginPage'])->name('login');
+Route::post('/login/create',[App\Http\Controllers\UserController::class,'storeUser'])->name('storeUser');
 
 
 
