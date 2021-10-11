@@ -28,16 +28,18 @@ class StoreCategoryRequest extends FormRequest
         ];
     }
 
-    // public function attributes()
-    // {
-        
-    // }
+    public function attributes()
+    {
+        return [
+            'title' => 'نام'
+        ];
+    }
 
     public function messages()
     {
         return [
-            "title.required" => "اسم را وارد کنید",
-            "title.min" => "اسم باید حداقل ۳ حرف داشته باشد"
+            "required" => ":attribute را وارد کنید",
+            "min" => ":attribute باید حداقل ۳ حرف داشته باشد"
         ];
     }
 

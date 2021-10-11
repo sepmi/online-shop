@@ -19,6 +19,11 @@ class PageController extends Controller
         return view('pages.login');
     }
 
+    public function signupPage(){
+
+        return view('pages.signup');
+    }
+
 
     
 }

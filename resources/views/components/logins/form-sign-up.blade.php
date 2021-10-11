@@ -32,20 +32,3 @@
 
 </form>
 
-
-{{--  
-<form class=" card p-4  m-auto sepehr3">
-
- <div class=" row ">
-    <label for="staticEmail" class="col-sm-4 col-form-label">Email</label>
-    <div class="col-sm-8 ">
-      <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="email@example.com">
-    </div>
-  </div>
-  <div class=" row">
-    <label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
-    <div class="col-sm-8">
-      <input type="password" class="form-control" id="inputPassword">
-    </div>
-  </div>
-</form> --}}

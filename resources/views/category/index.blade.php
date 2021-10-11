@@ -27,6 +27,7 @@
                 <tr>
                     <td>{{$category->title}}</td>
                     <td>
+
                         <a class="btn btn-info" href="{{route('categories.edit',$category ->id)}}">Edit</a>
                         
                         <form class="sepehr2"action="{{route('categories.destroy',$category ->id)}}" method="POST">

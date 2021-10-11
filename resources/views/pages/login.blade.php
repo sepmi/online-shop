@@ -5,7 +5,7 @@
         
 
 
-        <x-login.form></x-login.form>
+        <x-logins.form-log-in></x-logins.form-log-in>
 
     </x-layouts.app>
 
