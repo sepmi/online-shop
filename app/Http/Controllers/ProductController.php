@@ -14,6 +14,7 @@ class ProductController extends Controller
     public function index()
     {   
         $products = Product::all();
+        
 
         return view('product.index',compact('products'));
     }
@@ -66,6 +67,8 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
+        
+
         return view('product.show', compact('product'));
     }
 
@@ -74,7 +77,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        return view('product.edit',compact('product'));
+        $categories =  Category::all();
+        return view('product.edit',compact('product','categories'));
     }
 
 

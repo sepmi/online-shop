@@ -1,5 +1,5 @@
 .content{
-    max-width: 50%;
+    max-width: 900px;
     margin: auto;
 }
 
@@ -18,4 +18,20 @@
     direction: rtl;
     margin-bottom: 2px;
 
+}
+
+.sepehr4 {
+    max-width: 400px;
+    margin: auto;
+}
+
+
+.sepehr5 {
+    max-width: 600px;
+    margin: auto;
+}
+
+.sepehr6 {
+    max-width: 300px;
+    margin: auto;
 }
