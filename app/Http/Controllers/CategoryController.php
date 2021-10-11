@@ -26,7 +26,7 @@ class CategoryController extends Controller
         $category = Category::create([
             'name' => $request['name']
         ]);
-        return redirect()->route('categories.index')->with('success','category is created successfully!');
+        return redirect()->route('categories.index')->with("success","category is created successfully!");
     }
 
     
@@ -43,10 +43,10 @@ class CategoryController extends Controller
     
     public function update(Request $request,Category $category)
     {
-        dd($category);
+        
         $category->name = $request['name'];
         $category->save();
-        return redirect()->route('categories.show',$category->id)->with('success','category id updated successfully!');
+        redirect()->route('categories.index')->with('success','category id updated successfully!');
     }
 
     

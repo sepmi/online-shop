@@ -24,9 +24,9 @@ class ProductController extends Controller
     {
         $product = Product::create([
             'name' => $request['name'],
-            'image'=> $request['image'],
             'description' => $request['description'],
-            'price' => $request['price']
+            'price' => $request['price'],
+            'category_id' => $request['category_id']
         ]);
         $image = $request['image']; 
         Image::create([

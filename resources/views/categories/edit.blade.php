@@ -3,7 +3,7 @@
     <div class="card">
         <div class="card-head text-center">Edit</div>
         <div class="card-body">
-            <form action="{{route('categories.update', $category->id)}}" action="POST">
+            <form action="{{route('categories.update', $category->id)}}" method="POST">
                 @csrf
                 @method('PATCH')
                 @include('categories.form')

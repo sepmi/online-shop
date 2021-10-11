@@ -9,7 +9,7 @@ class Image extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['image','category_id'];
+    protected $fillable = ['image','product_id'];
 
     public function category(){
         return $this->belongsTo(Category::class);

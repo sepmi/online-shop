@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('name');
             $table->longText('description');
             $table->char('price');
+            $table->boolean('is_deleted')->default(false);
             $table->timestamps();
         });
     }
