@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProductController;
 
 /*
@@ -15,9 +16,7 @@ use App\Http\Controllers\ProductController;
 |
 */
 
- Route::get('/', function () {
-     return view('components.layouts.app');
- });
+Route::get('/', PageController::class,'index');
 
 Route::resource('/categories', CategoryController::class);
 

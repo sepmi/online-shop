@@ -65,5 +65,6 @@ class ProductController extends Controller
     {
         $product->is_deleted =true;
         $product->save();
+        return redirect()->route('products.index')->with('deleted','product is deleted successfully!');
     }
 }
