@@ -45,4 +45,18 @@ class UserController extends Controller
         return redirect()->route('index')->with('success', 'User Created');
     }
     
+    public function loginCheck(Request $request){
+        $users = User::get(['email','password']);
+        foreach($users as $user){
+            if(($user ->email == $request['email'])&($user ->password == $request['password'])){
+                
+                
+                return redirect()->route('login')->with("success-login","Loged in");
+            }
+        }  
+        
+        return back()->with("success-fail-login","Failed");
+
+        
+    }
 }

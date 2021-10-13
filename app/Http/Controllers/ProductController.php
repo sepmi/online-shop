@@ -24,7 +24,7 @@ class ProductController extends Controller
 
     public function create()
     {
-        $categories = Category::orderBy('title')->get(['id','title']);
+        $categories = Category::orderBy('title')->where('is_deleted',false)->get(['id','title']);
 
         $product = new Product();
 
@@ -77,7 +77,8 @@ class ProductController extends Controller
 
     public function edit(Product $product)
     {
-        $categories =  Category::all();
+        $categories =  Category::where('is_deleted' ,false)->get();
+        
         return view('product.edit',compact('product','categories'));
     }
 

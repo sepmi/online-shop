@@ -1,5 +1,5 @@
 
-<form class=" card p-4  m-auto sepehr3"  action="{{route('storeUser')}}" method="POST">
+<form class=" card p-4  m-auto sepehr3"  action="{{route('loginCheck')}}" method="POST">
     @csrf
 
 
