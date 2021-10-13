@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCategoryRequest;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -21,7 +22,7 @@ class CategoryController extends Controller
         return view('categories.create',compact('category'));
     }
 
-    public function store(Request $request)
+    public function store(StoreCategoryRequest $request)
     {
         $category = Category::create([
             'name' => $request['name']
@@ -46,12 +47,14 @@ class CategoryController extends Controller
         
         $category->name = $request['name'];
         $category->save();
-        redirect()->route('categories.index')->with('success','category id updated successfully!');
+        return redirect()->route('categories.show',$category->id)->with('success','category id updated successfully!');
     }
 
     
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->is_deleted = true ;
+        $category->save();
+        return redirect()->route('categories.index')->with('deleted','Category is deleted successfully!');
     }
 }

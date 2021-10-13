@@ -16,7 +16,7 @@
             <x-layouts.header>
             </x-layouts.header>
             <x-message>
-            </x-message>
+            </x-message>           
             <div>
                 {{$slot ?? ''}} 
             </div> 
