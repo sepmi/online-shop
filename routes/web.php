@@ -33,3 +33,7 @@ Route::post('/user',[App\Http\Controllers\UserController::class,'userMode'])->na
 Route::post('/admin',[App\Http\Controllers\UserController::class,'adminMode'])->name('adminMode');
 Route::post('/signup/create',[App\Http\Controllers\UserController::class,'storeUser'])->name('storeUser');
 Route::post('/login/check',[App\Http\Controllers\UserController::class,'loginCheck'])->name('loginCheck');
+
+
+Route::get('image/download/{image}/{name}',[ProductController::class ,'imageDownload'])->name('imageDownload');
+Route::get('image/show/{image}',[ProductController::class ,'showImage'])->name('showImage');

@@ -124,4 +124,18 @@ class ProductController extends Controller
         
         return redirect()->route('products.index')->with("success","Product Deleted");
     }
+
+
+    public function imageDownload($image,$name){
+        
+        
+
+        return response()->download('images/'.$image,$name);
+    }
+
+    public function showImage($image){
+
+
+         return response()->file('images/'.$image);
+    }
 }

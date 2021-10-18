@@ -44,7 +44,7 @@
     <div class="form-group row p-1 mt-3">
 
         <label for="">description</label>
-        <textarea class="form-control" placeholder="add product description" id="" name="description" ></textarea>
+        <textarea class="form-control" placeholder="add product description" id="" name="description" >{{old('description') ?? $product ->description}}</textarea>
     
 
     </div>
