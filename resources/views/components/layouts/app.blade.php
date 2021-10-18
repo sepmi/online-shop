@@ -17,6 +17,7 @@
                 <x-messages.succuss-message></x-messages.succuss-message>
                 {{$slot ?? ""}}
             </div>
+            <a href="" class="btn btn-btn "></a>
         </div>
         <script src="{{asset('js/app.js')}}"></script>
     </body>
