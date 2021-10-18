@@ -5,11 +5,15 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCategoryRequest;
 use Illuminate\Http\Request;
 use App\Models\Category;
-
+use App\Models\Product;
 
 class CategoryController extends Controller
 {
 
+    public function problem(){
+        $products = Product::all();
+        return view('pages.user',compact('products'));
+    }
     public function index()
     {
         $categories = Category::get();

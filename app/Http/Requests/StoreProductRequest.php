@@ -34,8 +34,8 @@ class StoreProductRequest extends FormRequest
     public function messages()
     {
         return [ 
-            'required' => ' نمی تواند خالی باشد.attribute: فیلد',
-            'min' => 'attribute: نمی تواند کمتر از سه حرف داشته باشد'
+            'required' => ' نمی تواند خالی باشد:attribute فیلد',
+            'min' => 'attribute نمی تواند کمتر از سه حرف داشته باشد'
         ];
     }
 }
