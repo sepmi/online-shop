@@ -25,7 +25,7 @@
                 
                 @if ($category->is_deleted == false)
                 <tr>
-                    <td>{{$category->title}}</td>
+                    <td>{{$category->title}}({{count($category->products)}})</td>
                     <td>
 
                         <a class="btn btn-info" href="{{route('categories.edit',$category ->id)}}">Edit</a>

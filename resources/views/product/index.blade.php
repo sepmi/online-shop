@@ -31,6 +31,11 @@
                         <a type="button" href="/products/{{$product->id}}/edit" class="btn btn-primary">Edit</a>
                         <a type="button" href="{{route('products.create')}}" class="btn btn-success">New</a>
                         <a type="button" href="{{route('imageDownload',[$product->image->image,$product->name])}}" class="btn btn-success">Download</a>
+                        <form class=""action="{{route('products.destroy',$product ->id)}}" method="POST">
+                            @method('DELETE')
+                            @csrf
+                            <button type="submit" class="btn btn-danger" >Delete</button>
+                        </form>
         
                     </div>
                     
