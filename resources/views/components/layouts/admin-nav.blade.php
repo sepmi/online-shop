@@ -18,11 +18,11 @@
                       <li><a class="dropdown-item" href="{{route('categories.index')}}">Show Categories</a></li>
                       
                     </ul>
-                  </li>
+                </li>
 
 
 
-                  <li class="nav-item dropdown">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Product
                     </a>
@@ -30,13 +30,27 @@
                       <li><a class="dropdown-item" href="{{route("products.create")}}">Create</a></li>
                       <li><a class="dropdown-item" href="{{route('products.index')}}">Show </a></li>
                     </ul>
-                  </li>
+                </li>
 
 
-                  <form class="d-inline"action="{{route('userMode')}}" method="POST">
+                <form class="d-inline"action="{{route('userMode')}}" method="POST">
                     @csrf
                     <button type="submit" class="btn btn-danger" >Go to User Mode</button>
-                  </form>
+                </form>
+
+
+                <div class="navbar-nav">
+                    <a class="dropdown-item" href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                          @csrf
+                    </form>
+                </div>
+
             </div>
       </div>
   </div>
