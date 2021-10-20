@@ -1,7 +1,7 @@
 
 <form class=" card p-4  m-auto sepehr3"  action="{{route('loginCheck')}}" method="POST">
     @csrf
-
+    
 
     <div class="form-group row p-3">
         <label class="col-4" for="">Email </label>
