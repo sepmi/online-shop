@@ -5,7 +5,7 @@
      
       
       <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
-            <div class="navbar-nav">
+            <div class="navbar-nav mr-auto">
                 <a class="nav-link active" aria-current="page" href="{{route('index')}}">Home(admin)</a>
 
 
@@ -31,26 +31,35 @@
                       <li><a class="dropdown-item" href="{{route('products.index')}}">Show </a></li>
                     </ul>
                 </li>
+            </div>
 
 
-                <form class="d-inline"action="{{route('userMode')}}" method="POST">
-                    @csrf
-                    <button type="submit" class="btn btn-danger" >Go to User Mode</button>
-                </form>
-
-
-                <div class="navbar-nav">
-                    <a class="dropdown-item" href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                                  document.getElementById('logout-form').submit();">
-                    {{ __('Logout') }}
+            <div class="navbar-nav ms-auto">
+                <li class="nav-item dropdown ">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->fname }} {{ Auth::user()->lname }}
                     </a>
 
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                          @csrf
-                    </form>
-                </div>
+                    <ul class="dropdown-menu mr-0" >                        
+                        <li>
+                            <form id="logout-form" action="{{ route('account') }}" method="POST" class="d-block">
+                                @csrf
+                                
+                                <button type="submit" class="dropdown-item" >{{ __('Account') }}</button>
+                            </form>
+                        </li>
 
+
+                        <li>                            
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-block">
+                                  @csrf
+                                  
+                                  <button type="submit" class="dropdown-item" >{{ __('Logout') }}</button>
+                            </form>
+                        </li>
+                       
+                    </ul>
+                </li>
             </div>
       </div>
   </div>

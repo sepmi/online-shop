@@ -41,8 +41,7 @@ Route::middleware('auth')->group(function(){
     // Route::get('/signup',[App\Http\Controllers\PageController::class,'signupPage'])->name('signup');
 
 
-    Route::post('/user',[App\Http\Controllers\UserController::class,'userMode'])->name('userMode');
-    Route::post('/admin',[App\Http\Controllers\UserController::class,'adminMode'])->name('adminMode');
+
     Route::post('/signup/create',[App\Http\Controllers\UserController::class,'storeUser'])->name('storeUser');
     Route::post('/login/check',[App\Http\Controllers\UserController::class,'loginCheck'])->name('loginCheck');
 
@@ -52,6 +51,9 @@ Route::middleware('auth')->group(function(){
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/',[App\Http\Controllers\PageController::class,'homePage'])->name('index');
+
+    Route::post('user/account',[App\Http\Controllers\UserController::class,'checkAccount'])->name('account');
+    Route::post('user/Store/{user}',[App\Http\Controllers\UserController::class,'storeAccount'])->name('accountStore');
 
 });
 

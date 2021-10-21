@@ -4,31 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
    
-    public function userMode(){
-        $users = User::all();
-        foreach($users as $user){
-            if ($user ->id == 1){
-                $user ->is_admin = 0;
-                $user ->save();
-            }
-        }
-            return back();
-    }
-
-    public function adminMode(){
-        $users = User::all();
-        foreach($users as $user){
-            if ($user ->id == 1){
-                $user ->is_admin = 1;
-                $user ->save();
-            }
-        }
-        return back();
-    }
 
     public function storeUser(Request $request){
 
@@ -58,5 +38,21 @@ class UserController extends Controller
         return back()->with("success-fail-login","Failed");
 
         
+    }
+
+    public function checkAccount(){
+        
+        $user = Auth::user();
+        
+        return view('user.index',compact('user'));
+    }
+
+    public function storeAccount(Request $request,User $user){
+        
+        $user['fname'] = $request['fname'];
+        $user['lname'] = $request['lname'];
+        $user['email'] = $request['email'];
+        $user->save();
+        return redirect()->route('index')->with("success","Information updated");
     }
 }

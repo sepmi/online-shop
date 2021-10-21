@@ -39,10 +39,7 @@
                     </li>
 
 
-                    <form class="d-inline"action="{{route('adminMode')}}" method="POST">
-                        @csrf
-                        <button type="submit" class="btn btn-danger" >Go to Admin Mode</button>
-                    </form>
+                    
               </div>
         </div>
     </div>
