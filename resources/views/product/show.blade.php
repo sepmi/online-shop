@@ -19,8 +19,11 @@
             </div>
 
             
-            <a type="button" href="/products/{{$product->id}}/edit" class="btn btn-primary">Edit</a>
-            <a type="button" href="{{route('products.create')}}" class="btn btn-success">New</a>
+            
+                
+                <a type="button" href="/products/{{$product->id}}/edit" class="btn btn-primary">Edit</a>
+                <a type="button" href="{{route('products.create')}}" class="btn btn-success">New</a>
+            
 
         </div>
       </div>

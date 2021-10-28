@@ -4,7 +4,7 @@ namespace App\View\Components\layouts;
 
 use Illuminate\View\Component;
 
-class jadid extends Component
+class nav extends Component
 {
     /**
      * Create a new component instance.
@@ -23,6 +23,6 @@ class jadid extends Component
      */
     public function render()
     {
-        return view('components.layouts.jadid');
+        return view('components.layouts.nav');
     }
 }

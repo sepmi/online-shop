@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-
+use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 
 
@@ -21,40 +21,63 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-
-
-//new lines after install auth
-
-Auth::routes();
-
-
-
-
-
-Route::middleware('auth')->group(function(){
-
-    Route::resource('/categories', CategoryController::class);
-    Route::resource('/products', ProductController::class);
-
-    
+   
     // Route::get('/login',[App\Http\Controllers\PageController::class,'loginPage'])->name('login');
     // Route::get('/signup',[App\Http\Controllers\PageController::class,'signupPage'])->name('signup');
 
 
 
-    Route::post('/signup/create',[App\Http\Controllers\UserController::class,'storeUser'])->name('storeUser');
-    Route::post('/login/check',[App\Http\Controllers\UserController::class,'loginCheck'])->name('loginCheck');
+    // Route::post('/signup/create',[App\Http\Controllers\UserController::class,'storeUser'])->name('storeUser');
+    // Route::post('/login/check',[App\Http\Controllers\UserController::class,'loginCheck'])->name('loginCheck');
 
 
-    Route::get('image/download/{image}/{name}',[ProductController::class ,'imageDownload'])->name('imageDownload');
+//new lines after install auth
+
+
+
+
+//method 1
+
+// Auth::routes();
+
+// Route::resource('/categories', CategoryController::class);
+// Route::resource('/products', ProductController::class);
+
+// Route::middleware('auth')->group(function(){
+
+//     Route::get('image/download/{image}/{name}',[ProductController::class ,'imageDownload'])->name('imageDownload');
+//     Route::get('image/show/{image}',[ProductController::class ,'showImage'])->name('showImage');
+
+//     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    
+
+//     Route::post('user/account',[App\Http\Controllers\UserController::class,'checkAccount'])->name('account');
+//     Route::post('user/Store/{user}',[App\Http\Controllers\UserController::class,'storeAccount'])->name('accountStore');
+
+// });
+
+// Route::get('/',[App\Http\Controllers\PageController::class,'homePage'])->name('index'); 
+
+//method 2
+
+Auth::routes();
+
+
+Route::resource('/categories', CategoryController::class);
+Route::resource('/products', ProductController::class);
+Route::get('image/download/{image}/{name}',[ProductController::class ,'imageDownload'])->name('imageDownload');
+
+
+Route::group(['prefix' => 'panel' ,'Middleware' => ['auth']],function(){
+
     Route::get('image/show/{image}',[ProductController::class ,'showImage'])->name('showImage');
 
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-    Route::get('/',[App\Http\Controllers\PageController::class,'homePage'])->name('index');
+    
 
     Route::post('user/account',[App\Http\Controllers\UserController::class,'checkAccount'])->name('account');
     Route::post('user/Store/{user}',[App\Http\Controllers\UserController::class,'storeAccount'])->name('accountStore');
 
 });
 
-
+Route::get('/',[App\Http\Controllers\PageController::class,'homePage'])->name('index'); 

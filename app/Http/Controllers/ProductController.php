@@ -3,13 +3,21 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
+use App\Mail\NewProductReleasedEmail;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Image;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth')->except(['index','imageDownload']);
+        $this->middleware('isAdmin')->except(['index','imageDownload']);
+    }
   
     public function index()
     {   
@@ -57,6 +65,15 @@ class ProductController extends Controller
         ]);
 
         $request->file('image')->storeAs('images/',$image_name);
+
+        $users = User::get(['email','fname','lname']);
+        
+        foreach($users as $user)
+        {
+            
+            Mail::to($user->email)->send(new NewProductReleasedEmail($user));
+        }
+        
 
         return redirect()->route('products.show',$product->id)->with("success" , "Product Created");
 
