@@ -40,11 +40,12 @@ use Illuminate\Support\Facades\Route;
 
 // Auth::routes();
 
-// Route::resource('/categories', CategoryController::class);
-// Route::resource('/products', ProductController::class);
+
 
 // Route::middleware('auth')->group(function(){
 
+//     Route::resource('/categories', CategoryController::class);
+//     Route::resource('/products', ProductController::class);
 //     Route::get('image/download/{image}/{name}',[ProductController::class ,'imageDownload'])->name('imageDownload');
 //     Route::get('image/show/{image}',[ProductController::class ,'showImage'])->name('showImage');
 
@@ -63,21 +64,26 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 
+
+Route::get('image/download/{image}/{name}',[ProductController::class ,'imageDownload'])->name('imageDownload');
 Route::resource('/categories', CategoryController::class);
 Route::resource('/products', ProductController::class);
-Route::get('image/download/{image}/{name}',[ProductController::class ,'imageDownload'])->name('imageDownload');
 
 
-Route::group(['prefix' => 'panel' ,'Middleware' => ['auth']],function(){
+Route::group(['prefix' => 'panel' ,'middleware' => ['auth']],function(){
 
-    Route::get('image/show/{image}',[ProductController::class ,'showImage'])->name('showImage');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');    
+    Route::post('/user/account',[App\Http\Controllers\UserController::class,'checkAccount'])->name('account');
+    Route::post('/user/Store/{user}',[App\Http\Controllers\UserController::class,'storeAccount'])->name('accountStore');
+    Route::post('/comments/store/{product}',[App\Http\Controllers\CommentController::class,'store'])->name('comment.store');
+    Route::delete('/comments/destroy/{comment}',[App\Http\Controllers\CommentController::class,'destroy'])->name('comment.destroy');
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     
-
-    Route::post('user/account',[App\Http\Controllers\UserController::class,'checkAccount'])->name('account');
-    Route::post('user/Store/{user}',[App\Http\Controllers\UserController::class,'storeAccount'])->name('accountStore');
-
 });
 
 Route::get('/',[App\Http\Controllers\PageController::class,'homePage'])->name('index'); 
+Route::get('/product/{product}',[ProductController::class ,'eachProduct'])->name('eachProduct');
+
+Route::POST('/search',[App\Http\Controllers\SearchController::class,'searchResult'])->name('searchResult');
+
+

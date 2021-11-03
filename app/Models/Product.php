@@ -17,4 +17,15 @@ class Product extends Model
     public function image(){
         return $this->hasOne(Image::class);
     }
+
+    public function comments(){
+
+        return $this->hasMany(Comment::class);
+    }
+
+    public function scopeSearchTitleProduct($query ,$name){
+
+
+        return $query->where('name','LIKE',$name.'%')->get();
+    }
 }

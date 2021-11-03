@@ -15,8 +15,8 @@ class ProductController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except(['index','imageDownload']);
-        $this->middleware('isAdmin')->except(['index','imageDownload']);
+        $this->middleware('auth')->except(['index','imageDownload','eachProduct']);
+        $this->middleware('isAdmin')->except(['index','imageDownload','eachProduct']);
     }
   
     public function index()
@@ -150,9 +150,10 @@ class ProductController extends Controller
         return response()->download('images/'.$image,$name);
     }
 
-    public function showImage($image){
+    public function eachProduct(Product $product){
 
-
-         return response()->file('images/'.$image);
+        
+        return view('product.eachProduct',compact('product'));
+         
     }
 }

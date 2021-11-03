@@ -16,7 +16,7 @@
                     <div class="card-body">
                         
                         <div class="mb-2">
-                            <a href="{{route('showImage',$product->image->image)}}">
+                            <a href="{{route('eachProduct',$product->id)}}">
                                 <img class="w-50 " src="{{asset('images/'.$product->image ->image)}}" alt="this is image file">
                             </a>
                         </div>
@@ -38,7 +38,7 @@
                         
                         @if (Auth::check() && Auth::user()->is_admin == 1)
 
-                            <form class=""action="{{route('products.destroy',$product ->id)}}" method="POST">
+                            <form class=""action="{{route('products.destroy',$product )}}" method="POST">
                                 @method('DELETE')
                                 @csrf
                                 <button type="submit" class="btn btn-danger" >Delete</button>

@@ -43,7 +43,10 @@
               </div>
 
               <div class="navbar-nav ms-auto">
-                
+                    <li class="nav-item">
+                      <x-layouts.search-bar></x-layouts.search-bar>
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                     </li>

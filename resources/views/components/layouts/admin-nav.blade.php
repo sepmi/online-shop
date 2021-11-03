@@ -35,6 +35,10 @@
 
 
             <div class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <x-layouts.search-bar></x-layouts.search-bar>
+                </li>
+
                 <li class="nav-item dropdown ">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                         {{ Auth::user()->fname }} {{ Auth::user()->lname }}
